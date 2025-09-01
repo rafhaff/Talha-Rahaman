@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from './contexts/ThemeContext';
 import Navbar from './components/Navigation/Navbar';
 import ToastContainer from './components/Toast/ToastContainer';
 import Dashboard from './pages/Dashboard';
@@ -86,21 +87,23 @@ function App() {
   }
 
   return (
-    <Router>
-      <div className="App font-nunito">
-        <Navbar onLogout={handleLogout} />
-        <ToastContainer toasts={toasts} onRemove={removeToast} />
-        
-        <main>
-          <Routes>
-            <Route path="/" element={<Dashboard userData={userData} />} />
-            <Route path="/chapters" element={<Chapters />} />
-            <Route path="/chapters/:chapterId" element={<Topic />} />
-            <Route path="/topics/:topicId" element={<Topic />} />
-          </Routes>
-        </main>
-      </div>
-    </Router>
+    <ThemeProvider>
+      <Router>
+        <div className="App font-nunito bg-gray-50 dark:bg-gray-900 min-h-screen transition-colors duration-300">
+          <Navbar onLogout={handleLogout} />
+          <ToastContainer toasts={toasts} onRemove={removeToast} />
+          
+          <main>
+            <Routes>
+              <Route path="/" element={<Dashboard userData={userData} />} />
+              <Route path="/chapters" element={<Chapters />} />
+              <Route path="/chapters/:chapterId" element={<Topic />} />
+              <Route path="/topics/:topicId" element={<Topic />} />
+            </Routes>
+          </main>
+        </div>
+      </Router>
+    </ThemeProvider>
   );
 }
 

@@ -185,24 +185,24 @@ const Chapters: React.FC = () => {
       title: "Magnetic Effects of Electric Current",
       description: "Study the relationship between electricity and magnetism",
       icon: "🧲",
-      progress: 0,
-      isUnlocked: false,
+      progress: 25,
+      isUnlocked: true,
       isCompleted: false,
       topics: ["Magnetic Field", "Electromagnetic Induction", "Electric Motor", "Electric Generator"],
-      studyTime: 0,
-      quizzes: 0
+      studyTime: 4,
+      quizzes: 3
     },
     {
       id: 16,
       title: "Work and Energy",
       description: "Learn about work, energy, and power in physical systems",
       icon: "⚙️",
-      progress: 0,
-      isUnlocked: false,
+      progress: 15,
+      isUnlocked: true,
       isCompleted: false,
       topics: ["Work Done", "Kinetic Energy", "Potential Energy", "Conservation of Energy"],
-      studyTime: 0,
-      quizzes: 0
+      studyTime: 2,
+      quizzes: 2
     }
   ];
 
@@ -269,24 +269,24 @@ const Chapters: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-16 bg-gray-50">
+    <div className="min-h-screen pt-16 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-4 py-8">
         {/* Header */}
         <section className="flex flex-col lg:flex-row justify-between items-center mb-8 py-8 gap-6">
           <div className="text-center lg:text-left">
-            <h1 className="text-4xl font-bold text-gray-900 mb-2">Choose Your Subject</h1>
-            <p className="text-xl text-gray-600">Master fundamentals step by step</p>
+            <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-2">Choose Your Subject</h1>
+            <p className="text-xl text-gray-600 dark:text-gray-400">Master fundamentals step by step</p>
           </div>
           
-          <div className="flex gap-2 bg-white p-1 rounded-lg shadow-md">
+          <div className="flex gap-2 bg-white dark:bg-gray-800 p-1 rounded-lg shadow-md">
             {(['all', 'unlocked', 'completed'] as const).map((filterType) => (
               <button
                 key={filterType}
                 onClick={() => setFilter(filterType)}
                 className={`px-5 py-3 rounded-md font-medium transition-all duration-200 ${
                   filter === filterType
-                    ? 'bg-blue-600 text-white shadow-sm'
-                    : 'text-gray-600 hover:text-gray-800 hover:bg-gray-100'
+                    ? 'bg-blue-600 dark:bg-blue-700 text-white shadow-sm'
+                    : 'text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700'
                 }`}
               >
                 {filterType === 'all' ? 'Mathematics' : 
@@ -307,13 +307,13 @@ const Chapters: React.FC = () => {
             {filteredChapters.map((chapter, index) => (
               <div
                 key={chapter.id}
-                className={`bg-white rounded-2xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 relative ${
+                className={`bg-white dark:bg-gray-800 rounded-2xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 relative ${
                   !chapter.isUnlocked ? 'opacity-60' : ''
                 }`}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {/* Header with gradient background */}
-                <div className="bg-gradient-to-br from-blue-600 to-teal-600 p-6 text-white relative overflow-hidden">
+                <div className="bg-gradient-to-br from-blue-600 to-teal-600 dark:from-blue-700 dark:to-teal-700 p-6 text-white relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
                   <div className="relative z-10">
                     <div className="text-3xl mb-3">{chapter.icon}</div>
@@ -330,7 +330,7 @@ const Chapters: React.FC = () => {
                 {/* Content */}
                 <div className="p-6">
                   {/* Stats */}
-                  <div className="flex gap-6 mb-6 text-sm text-gray-600">
+                  <div className="flex gap-6 mb-6 text-sm text-gray-600 dark:text-gray-400">
                     <div className="flex items-center gap-2">
                       <Clock className="w-4 h-4" />
                       {chapter.studyTime}h
@@ -344,10 +344,10 @@ const Chapters: React.FC = () => {
                   {/* Progress */}
                   <div className="mb-6">
                     <div className="flex justify-between items-center mb-2">
-                      <span className="text-sm font-medium text-gray-600">Progress</span>
-                      <span className="text-sm font-semibold text-blue-600">{chapter.progress}%</span>
+                      <span className="text-sm font-medium text-gray-600 dark:text-gray-400">Progress</span>
+                      <span className="text-sm font-semibold text-blue-600 dark:text-blue-400">{chapter.progress}%</span>
                     </div>
-                    <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+                    <div className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
                       <div 
                         className="h-full bg-gradient-to-r from-blue-600 to-teal-600 rounded-full transition-all duration-1000 ease-out"
                         style={{ width: `${chapter.progress}%` }}
@@ -357,15 +357,15 @@ const Chapters: React.FC = () => {
 
                   {/* Topics */}
                   <div className="mb-6">
-                    <div className="text-sm font-medium text-gray-600 mb-3">Topics</div>
+                    <div className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-3">Topics</div>
                     <div className="flex flex-wrap gap-2">
                       {chapter.topics.slice(0, 3).map((topic, i) => (
-                        <span key={i} className="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-xs font-medium">
+                        <span key={i} className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-3 py-1 rounded-full text-xs font-medium">
                           {topic}
                         </span>
                       ))}
                       {chapter.topics.length > 3 && (
-                        <span className="text-xs text-gray-500 px-2 py-1">
+                        <span className="text-xs text-gray-500 dark:text-gray-400 px-2 py-1">
                           +{chapter.topics.length - 3} more
                         </span>
                       )}
@@ -383,12 +383,12 @@ const Chapters: React.FC = () => {
                           <Play className="w-4 h-4" />
                           {chapter.progress > 0 ? 'Continue' : 'Start'}
                         </Link>
-                        <button className="flex-1 bg-gray-200 text-gray-700 py-3 px-4 rounded-lg font-medium hover:bg-gray-300 transition-colors">
+                        <button className="flex-1 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 py-3 px-4 rounded-lg font-medium hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
                           Preview
                         </button>
                       </>
                     ) : (
-                      <button className="w-full bg-gray-200 text-gray-400 py-3 px-4 rounded-lg font-medium cursor-not-allowed">
+                      <button className="w-full bg-gray-200 dark:bg-gray-700 text-gray-400 dark:text-gray-500 py-3 px-4 rounded-lg font-medium cursor-not-allowed">
                         Complete Previous Chapters
                       </button>
                     )}
@@ -397,11 +397,11 @@ const Chapters: React.FC = () => {
 
                 {/* Locked overlay */}
                 {!chapter.isUnlocked && (
-                  <div className="absolute inset-0 bg-white/90 flex flex-col items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-200">
+                  <div className="absolute inset-0 bg-white/90 dark:bg-gray-800/90 flex flex-col items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-200">
                     <Lock className="w-12 h-12 text-gray-400 mb-4" />
                     <div className="text-center px-4">
-                      <h4 className="font-semibold text-gray-700 mb-2">Chapter Locked</h4>
-                      <p className="text-sm text-gray-600">Complete previous chapters to unlock</p>
+                      <h4 className="font-semibold text-gray-700 dark:text-gray-300 mb-2">Chapter Locked</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">Complete previous chapters to unlock</p>
                     </div>
                   </div>
                 )}

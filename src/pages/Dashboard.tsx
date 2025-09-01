@@ -55,11 +55,11 @@ const Dashboard: React.FC<DashboardProps> = ({ userData }) => {
   const overallProgress = (userData.completedChapters / userData.totalChapters) * 100;
 
   return (
-    <div className="min-h-screen pt-16 bg-gray-50">
+    <div className="min-h-screen pt-16 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-4 py-8">
         {/* Welcome Section */}
         <section className="mb-8">
-          <div className="bg-gradient-to-br from-blue-600 to-teal-600 rounded-2xl p-8 text-white relative overflow-hidden">
+          <div className="bg-gradient-to-br from-blue-600 to-teal-600 dark:from-blue-700 dark:to-teal-700 rounded-2xl p-8 text-white relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-32 translate-x-32"></div>
             <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="text-center md:text-left">
@@ -86,52 +86,52 @@ const Dashboard: React.FC<DashboardProps> = ({ userData }) => {
         <section className="mb-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
             {/* Progress Ring */}
-            <div className="bg-white rounded-2xl shadow-lg p-8 text-center">
+            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 text-center transition-colors duration-300">
               <ProgressRing progress={overallProgress} size={140} className="mb-6" />
-              <h3 className="text-xl font-semibold mb-2">Chapter Progress</h3>
-              <p className="text-gray-600">Keep up the great work!</p>
+              <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">Chapter Progress</h3>
+              <p className="text-gray-600 dark:text-gray-400">Keep up the great work!</p>
             </div>
 
             {/* Stats Grid */}
             <div className="lg:col-span-2">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="bg-white rounded-xl shadow-md p-6 flex items-center gap-4 hover:shadow-lg transition-all duration-200">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                    <BookOpen className="w-6 h-6 text-blue-600" />
+                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 flex items-center gap-4 hover:shadow-lg transition-all duration-200">
+                  <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
+                    <BookOpen className="w-6 h-6 text-blue-600 dark:text-blue-400" />
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-gray-900">{userData.completedChapters}</div>
-                    <div className="text-sm text-gray-600">Chapters Completed</div>
+                    <div className="text-2xl font-bold text-gray-900 dark:text-gray-100">{userData.completedChapters}</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">Chapters Completed</div>
                   </div>
                 </div>
 
-                <div className="bg-white rounded-xl shadow-md p-6 flex items-center gap-4 hover:shadow-lg transition-all duration-200">
-                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                    <Clock className="w-6 h-6 text-green-600" />
+                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 flex items-center gap-4 hover:shadow-lg transition-all duration-200">
+                  <div className="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center">
+                    <Clock className="w-6 h-6 text-green-600 dark:text-green-400" />
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-gray-900">{userData.studyTime}</div>
-                    <div className="text-sm text-gray-600">Hours This Month</div>
+                    <div className="text-2xl font-bold text-gray-900 dark:text-gray-100">{userData.studyTime}</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">Hours This Month</div>
                   </div>
                 </div>
 
-                <div className="bg-white rounded-xl shadow-md p-6 flex items-center gap-4 hover:shadow-lg transition-all duration-200">
-                  <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
-                    <Target className="w-6 h-6 text-yellow-600" />
+                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 flex items-center gap-4 hover:shadow-lg transition-all duration-200">
+                  <div className="w-12 h-12 bg-yellow-100 dark:bg-yellow-900/30 rounded-lg flex items-center justify-center">
+                    <Target className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-gray-900">{userData.averageScore}%</div>
-                    <div className="text-sm text-gray-600">Avg Quiz Score</div>
+                    <div className="text-2xl font-bold text-gray-900 dark:text-gray-100">{userData.averageScore}%</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">Avg Quiz Score</div>
                   </div>
                 </div>
 
-                <div className="bg-white rounded-xl shadow-md p-6 flex items-center gap-4 hover:shadow-lg transition-all duration-200">
-                  <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
-                    <Award className="w-6 h-6 text-purple-600" />
+                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 flex items-center gap-4 hover:shadow-lg transition-all duration-200">
+                  <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center">
+                    <Award className="w-6 h-6 text-purple-600 dark:text-purple-400" />
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-gray-900">{userData.achievements}</div>
-                    <div className="text-sm text-gray-600">Achievements</div>
+                    <div className="text-2xl font-bold text-gray-900 dark:text-gray-100">{userData.achievements}</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">Achievements</div>
                   </div>
                 </div>
               </div>
@@ -141,16 +141,16 @@ const Dashboard: React.FC<DashboardProps> = ({ userData }) => {
 
         {/* Continue Learning */}
         <section className="mb-8">
-          <div className="bg-white rounded-2xl shadow-lg p-8 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center transition-colors duration-300">
             <div>
-              <h3 className="text-2xl font-semibold mb-2">Continue Learning</h3>
-              <p className="text-gray-600 mb-4">Pick up where you left off</p>
+              <h3 className="text-2xl font-semibold mb-2 text-gray-900 dark:text-gray-100">Continue Learning</h3>
+              <p className="text-gray-600 dark:text-gray-400 mb-4">Pick up where you left off</p>
               
               <div className="flex items-center gap-3 mb-6">
-                <span className="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wide">
+                <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wide">
                   {userData.lastTopic.chapter}
                 </span>
-                <span className="font-medium text-gray-700">
+                <span className="font-medium text-gray-700 dark:text-gray-300">
                   {userData.lastTopic.topic}
                 </span>
               </div>
@@ -165,8 +165,8 @@ const Dashboard: React.FC<DashboardProps> = ({ userData }) => {
             </div>
 
             <div className="text-center lg:text-right">
-              <div className="bg-gradient-to-br from-blue-100 to-teal-100 rounded-2xl p-8">
-                <div className="text-2xl font-semibold text-blue-600 font-mono">
+              <div className="bg-gradient-to-br from-blue-100 to-teal-100 dark:from-blue-900/30 dark:to-teal-900/30 rounded-2xl p-8">
+                <div className="text-2xl font-semibold text-blue-600 dark:text-blue-400 font-mono">
                   ax² + bx + c = 0
                 </div>
               </div>
@@ -177,7 +177,7 @@ const Dashboard: React.FC<DashboardProps> = ({ userData }) => {
         {/* Motivational Quote */}
         {currentQuote && (
           <section className="mb-8">
-            <div className="bg-gradient-to-br from-orange-500 to-yellow-500 rounded-2xl p-8 text-white text-center relative overflow-hidden">
+            <div className="bg-gradient-to-br from-orange-500 to-yellow-500 dark:from-orange-600 dark:to-yellow-600 rounded-2xl p-8 text-white text-center relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
               <div className="relative z-10">
                 <div className="text-4xl mb-4 opacity-90">💡</div>
@@ -194,42 +194,42 @@ const Dashboard: React.FC<DashboardProps> = ({ userData }) => {
 
         {/* Quick Actions */}
         <section>
-          <h3 className="text-2xl font-semibold text-center mb-8">Quick Actions</h3>
+          <h3 className="text-2xl font-semibold text-center mb-8 text-gray-900 dark:text-gray-100">Quick Actions</h3>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <Link 
               to="/chapters"
-              className="group bg-white rounded-xl shadow-md p-6 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-200 border-2 border-transparent hover:border-blue-200"
+              className="group bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-200 border-2 border-transparent hover:border-blue-200 dark:hover:border-blue-600"
             >
               <div className="text-4xl mb-4">📚</div>
-              <h4 className="text-lg font-semibold mb-2 text-gray-900 group-hover:text-blue-600">
+              <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400">
                 Browse Chapters
               </h4>
-              <p className="text-sm text-gray-600">Explore all available topics</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400">Explore all available topics</p>
             </Link>
 
-            <div className="group bg-white rounded-xl shadow-md p-6 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-200 border-2 border-transparent hover:border-green-200 cursor-pointer">
+            <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-200 border-2 border-transparent hover:border-green-200 dark:hover:border-green-600 cursor-pointer">
               <div className="text-4xl mb-4">🧮</div>
-              <h4 className="text-lg font-semibold mb-2 text-gray-900 group-hover:text-green-600">
+              <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100 group-hover:text-green-600 dark:group-hover:text-green-400">
                 Practice Quiz
               </h4>
-              <p className="text-sm text-gray-600">Test your knowledge</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400">Test your knowledge</p>
             </div>
 
-            <div className="group bg-white rounded-xl shadow-md p-6 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-200 border-2 border-transparent hover:border-yellow-200 cursor-pointer">
+            <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-200 border-2 border-transparent hover:border-yellow-200 dark:hover:border-yellow-600 cursor-pointer">
               <div className="text-4xl mb-4">📈</div>
-              <h4 className="text-lg font-semibold mb-2 text-gray-900 group-hover:text-yellow-600">
+              <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100 group-hover:text-yellow-600 dark:group-hover:text-yellow-400">
                 View Progress
               </h4>
-              <p className="text-sm text-gray-600">Track your learning journey</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400">Track your learning journey</p>
             </div>
 
-            <div className="group bg-white rounded-xl shadow-md p-6 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-200 border-2 border-transparent hover:border-purple-200 cursor-pointer">
+            <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-200 border-2 border-transparent hover:border-purple-200 dark:hover:border-purple-600 cursor-pointer">
               <div className="text-4xl mb-4">🤖</div>
-              <h4 className="text-lg font-semibold mb-2 text-gray-900 group-hover:text-purple-600">
+              <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100 group-hover:text-purple-600 dark:group-hover:text-purple-400">
                 Chatbot
               </h4>
-              <p className="text-sm text-gray-600">Need assistance?</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400">Need assistance?</p>
             </div>
           </div>
         </section>
