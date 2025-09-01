@@ -86,61 +86,121 @@ const Chapters: React.FC = () => {
   const physicsChapters: Chapter[] = [
     {
       id: 7,
-      title: "Mechanics",
-      description: "Study motion, forces, and energy in physical systems",
-      icon: "⚙️",
-      progress: 80,
+      title: "Force and Pressure",
+      description: "Understanding forces and their effects on matter",
+      icon: "💪",
+      progress: 85,
       isUnlocked: true,
       isCompleted: false,
-      topics: ["Kinematics", "Newton's Laws", "Work & Energy", "Momentum"],
-      studyTime: 12,
-      quizzes: 6
-    },
-    {
-      id: 8,
-      title: "Thermodynamics",
-      description: "Explore heat, temperature, and energy transfer",
-      icon: "🌡️",
-      progress: 60,
-      isUnlocked: true,
-      isCompleted: false,
-      topics: ["Heat Transfer", "Laws of Thermodynamics", "Entropy", "Heat Engines"],
+      topics: ["Types of Forces", "Pressure in Fluids", "Atmospheric Pressure", "Buoyancy"],
       studyTime: 8,
       quizzes: 4
     },
     {
-      id: 9,
-      title: "Waves & Optics",
-      description: "Understanding wave properties and light behavior",
-      icon: "🌊",
-      progress: 45,
+      id: 8,
+      title: "Friction",
+      description: "Study the force that opposes motion between surfaces",
+      icon: "🛞",
+      progress: 70,
       isUnlocked: true,
       isCompleted: false,
-      topics: ["Wave Motion", "Sound Waves", "Light", "Interference"],
+      topics: ["Static Friction", "Kinetic Friction", "Rolling Friction", "Factors Affecting Friction"],
       studyTime: 6,
-      quizzes: 3
+      quizzes: 4
+    },
+    {
+      id: 9,
+      title: "Electric Current and Its Effects",
+      description: "Explore electric current and its various applications",
+      icon: "⚡",
+      progress: 60,
+      isUnlocked: true,
+      isCompleted: false,
+      topics: ["Electric Current", "Heating Effect", "Chemical Effect", "Magnetic Effect"],
+      studyTime: 6,
+      quizzes: 4
     },
     {
       id: 10,
-      title: "Electricity & Magnetism",
-      description: "Study electric and magnetic phenomena",
-      icon: "⚡",
+      title: "Motion",
+      description: "Understanding different types of motion and their characteristics",
+      icon: "🏃",
+      progress: 90,
+      isUnlocked: true,
+      isCompleted: false,
+      topics: ["Types of Motion", "Speed and Velocity", "Acceleration", "Equations of Motion"],
+      studyTime: 10,
+      quizzes: 5
+    },
+    {
+      id: 11,
+      title: "Force and Laws of Motion",
+      description: "Learn Newton's laws and their applications",
+      icon: "🎯",
+      progress: 75,
+      isUnlocked: true,
+      isCompleted: false,
+      topics: ["Newton's First Law", "Newton's Second Law", "Newton's Third Law", "Conservation of Momentum"],
+      studyTime: 8,
+      quizzes: 4
+    },
+    {
+      id: 12,
+      title: "Gravitation",
+      description: "Study gravitational force and its effects",
+      icon: "🌍",
+      progress: 40,
+      isUnlocked: true,
+      isCompleted: false,
+      topics: ["Universal Gravitation", "Free Fall", "Weight and Mass", "Planetary Motion"],
+      studyTime: 7,
+      quizzes: 3
+    },
+    {
+      id: 13,
+      title: "Light: Reflection and Refraction",
+      description: "Explore how light behaves when it encounters different materials",
+      icon: "💡",
+      progress: 55,
+      isUnlocked: true,
+      isCompleted: false,
+      topics: ["Laws of Reflection", "Mirrors", "Refraction", "Lenses"],
+      studyTime: 9,
+      quizzes: 4
+    },
+    {
+      id: 14,
+      title: "Electricity",
+      description: "Understanding electric circuits and electrical phenomena",
+      icon: "🔌",
+      progress: 30,
+      isUnlocked: true,
+      isCompleted: false,
+      topics: ["Electric Charge", "Electric Potential", "Ohm's Law", "Electric Circuits"],
+      studyTime: 8,
+      quizzes: 4
+    },
+    {
+      id: 15,
+      title: "Magnetic Effects of Electric Current",
+      description: "Study the relationship between electricity and magnetism",
+      icon: "🧲",
       progress: 0,
       isUnlocked: false,
       isCompleted: false,
-      topics: ["Electric Fields", "Circuits", "Magnetic Fields", "Electromagnetic Induction"],
+      topics: ["Magnetic Field", "Electromagnetic Induction", "Electric Motor", "Electric Generator"],
       studyTime: 0,
       quizzes: 0
     },
     {
-      id: 11,
-      title: "Modern Physics",
-      description: "Explore quantum mechanics and relativity",
-      icon: "🔬",
+      id: 16,
+      title: "Work and Energy",
+      description: "Learn about work, energy, and power in physical systems",
+      icon: "⚙️",
       progress: 0,
       isUnlocked: false,
       isCompleted: false,
-      topics: ["Atomic Structure", "Quantum Theory", "Nuclear Physics", "Relativity"],
+      topics: ["Work Done", "Kinetic Energy", "Potential Energy", "Conservation of Energy"],
       studyTime: 0,
       quizzes: 0
     }
@@ -148,7 +208,7 @@ const Chapters: React.FC = () => {
 
   const chemistryChapters: Chapter[] = [
     {
-      id: 12,
+      id: 17,
       title: "Atomic Structure",
       description: "Understanding atoms, electrons, and chemical bonding",
       icon: "⚛️",
@@ -160,7 +220,7 @@ const Chapters: React.FC = () => {
       quizzes: 5
     },
     {
-      id: 13,
+      id: 18,
       title: "Chemical Reactions",
       description: "Study reaction types, kinetics, and equilibrium",
       icon: "🧪",
@@ -172,7 +232,7 @@ const Chapters: React.FC = () => {
       quizzes: 4
     },
     {
-      id: 14,
+      id: 19,
       title: "Organic Chemistry",
       description: "Explore carbon compounds and their reactions",
       icon: "🧬",
