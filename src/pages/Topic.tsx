@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Breadcrumb from '../components/Common/Breadcrumb';
 import { TopicData, Question, QuizState, Chapter } from '../types';
-import { Clock, FileDown, Upload, Play, SkipForward, RotateCcw, CheckCircle } from 'lucide-react';
+import { Clock, FileDown, Upload, Play, SkipForward, RotateCcw, CheckCircle, Video } from 'lucide-react';
 
 const Topic: React.FC = () => {
   const { topicId, chapterId } = useParams();
-  const [activeTab, setActiveTab] = useState<'lesson' | 'quiz' | 'assignment' | 'test'>('lesson');
+  const [activeTab, setActiveTab] = useState<'lesson' | 'video' | 'quiz' | 'assignment' | 'test'>('lesson');
   const [topicData, setTopicData] = useState<TopicData | null>(null);
   const [chapterData, setChapterData] = useState<Chapter | null>(null);
   const [quizState, setQuizState] = useState<QuizState>({
@@ -164,6 +164,7 @@ const Topic: React.FC = () => {
 
   const tabs = [
     { id: 'lesson', label: '📖 Lesson', icon: '📖' },
+    { id: 'video', label: '🎥 Video', icon: '🎥' },
     { id: 'quiz', label: '🧮 Quiz', icon: '🧮' },
     { id: 'assignment', label: '📝 Assignment', icon: '📝' },
     { id: 'test', label: '🎯 Final Test', icon: '🎯' }
@@ -330,6 +331,101 @@ const Topic: React.FC = () => {
                   <button className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors">
                     Next Lesson →
                   </button>
+                </div>
+              </div>
+            )}
+
+            {/* Video Tab */}
+            {activeTab === 'video' && (
+              <div className="max-w-4xl mx-auto">
+                <div className="text-center mb-8">
+                  <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
+                    Video Lesson: {topicData.title}
+                  </h3>
+                  <p className="text-lg text-gray-600 dark:text-gray-400">
+                    Watch our comprehensive video explanation of this topic
+                  </p>
+                </div>
+
+                {/* Video Player Container */}
+                <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden mb-8">
+                  <div className="aspect-video bg-gray-900 relative flex items-center justify-center">
+                    {/* Placeholder for video player */}
+                    <div className="text-center text-white">
+                      <Video className="w-16 h-16 mx-auto mb-4 opacity-60" />
+                      <h4 className="text-xl font-semibold mb-2">Video Coming Soon</h4>
+                      <p className="text-gray-300 mb-6">
+                        We're preparing high-quality video content for this topic
+                      </p>
+                      <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors inline-flex items-center gap-2">
+                        <Play className="w-4 h-4" />
+                        Notify When Available
+                      </button>
+                    </div>
+                  </div>
+                  
+                  {/* Video Controls Placeholder */}
+                  <div className="p-6 border-t border-gray-200 dark:border-gray-600">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-1">
+                          {topicData.title} - Complete Guide
+                        </h4>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                          Duration: 15:30 • Quality: HD
+                        </p>
+                      </div>
+                      <div className="flex gap-2">
+                        <button className="p-2 bg-gray-100 dark:bg-gray-700 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+                          <span className="text-sm">0.5x</span>
+                        </button>
+                        <button className="p-2 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-lg font-medium">
+                          <span className="text-sm">1x</span>
+                        </button>
+                        <button className="p-2 bg-gray-100 dark:bg-gray-700 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+                          <span className="text-sm">1.5x</span>
+                        </button>
+                        <button className="p-2 bg-gray-100 dark:bg-gray-700 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+                          <span className="text-sm">2x</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Video Notes Section */}
+                <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
+                  <h4 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-6">Video Notes & Key Points</h4>
+                  
+                  <div className="space-y-4">
+                    <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-xl p-4">
+                      <h5 className="font-semibold text-blue-800 dark:text-blue-300 mb-2">📝 Take Notes</h5>
+                      <textarea 
+                        placeholder="Write your notes while watching the video..."
+                        className="w-full h-32 p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 resize-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      />
+                    </div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700 rounded-xl p-4">
+                        <h5 className="font-semibold text-green-800 dark:text-green-300 mb-2">✅ Key Concepts</h5>
+                        <ul className="text-sm text-green-700 dark:text-green-400 space-y-1">
+                          <li>• Understanding the general form</li>
+                          <li>• Identifying coefficients</li>
+                          <li>• Solution methods overview</li>
+                        </ul>
+                      </div>
+                      
+                      <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-700 rounded-xl p-4">
+                        <h5 className="font-semibold text-yellow-800 dark:text-yellow-300 mb-2">⚠️ Common Mistakes</h5>
+                        <ul className="text-sm text-yellow-700 dark:text-yellow-400 space-y-1">
+                          <li>• Forgetting the discriminant</li>
+                          <li>• Sign errors in calculations</li>
+                          <li>• Not checking solutions</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             )}
