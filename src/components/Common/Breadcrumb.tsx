@@ -13,19 +13,19 @@ interface BreadcrumbProps {
 
 const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
   return (
-    <nav className="flex items-center gap-3 py-4 text-lg font-medium text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-800 rounded-xl px-6 py-3 shadow-sm transition-colors duration-300">
+    <nav className="flex items-center gap-3 py-4 text-lg font-medium text-secondary glass rounded-xl px-6 py-3 border border-white/10 transition-colors duration-300">
       {items.map((item, index) => (
         <React.Fragment key={index}>
-          {index > 0 && <ChevronRight className="w-5 h-5 text-gray-400 dark:text-gray-500" />}
+          {index > 0 && <ChevronRight className="w-5 h-5 text-muted" />}
           {item.path ? (
             <Link 
               to={item.path} 
-              className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium"
+              className="hover:text-purple-400 transition-colors font-medium"
             >
               {item.label}
             </Link>
           ) : (
-            <span className="font-semibold text-gray-800 dark:text-gray-200">{item.label}</span>
+            <span className="font-semibold text-primary">{item.label}</span>
           )}
         </React.Fragment>
       ))}

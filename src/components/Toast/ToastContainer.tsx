@@ -31,7 +31,7 @@ const ToastContainer: React.FC<ToastContainerProps> = ({ toasts, onRemove }) => 
       {toasts.map((toast) => (
         <div
           key={toast.id}
-          className={`toast toast-${toast.type} show min-w-80 max-w-96 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-xl border-l-4 opacity-0 transform translate-x-full transition-all duration-300 ease-in-out`}
+          className={`toast toast-${toast.type} show min-w-80 max-w-96 p-4 glass rounded-lg shadow-xl border-l-4 opacity-0 transform translate-x-full transition-all duration-300 ease-in-out border border-white/10`}
           style={{
             borderLeftColor: 
               toast.type === 'success' ? '#10B981' :
@@ -48,16 +48,16 @@ const ToastContainer: React.FC<ToastContainerProps> = ({ toasts, onRemove }) => 
               {getIcon(toast.type)}
             </div>
             <div className="flex-1">
-              <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">
+              <div className="font-semibold text-primary mb-1">
                 {getTitle(toast.type)}
               </div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">
+              <div className="text-sm text-secondary">
                 {toast.message}
               </div>
             </div>
             <button
               onClick={() => onRemove(toast.id)}
-              className="flex-shrink-0 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+              className="flex-shrink-0 text-muted hover:text-secondary transition-colors"
             >
               <X className="w-4 h-4" />
             </button>

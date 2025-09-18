@@ -8,17 +8,17 @@ const ThemeToggle: React.FC = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="relative p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200 group"
+      className="relative p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-all duration-200 group border border-white/10"
       aria-label={`Switch to ${isDark ? 'light' : 'dark'} theme`}
     >
       <div className="relative w-6 h-6">
         <Sun 
-          className={`absolute inset-0 w-6 h-6 text-yellow-500 transition-all duration-300 ${
+          className={`absolute inset-0 w-6 h-6 text-yellow-400 transition-all duration-300 ${
             isDark ? 'opacity-0 rotate-90 scale-0' : 'opacity-100 rotate-0 scale-100'
           }`} 
         />
         <Moon 
-          className={`absolute inset-0 w-6 h-6 text-blue-400 transition-all duration-300 ${
+          className={`absolute inset-0 w-6 h-6 text-purple-400 transition-all duration-300 ${
             isDark ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-0'
           }`} 
         />
